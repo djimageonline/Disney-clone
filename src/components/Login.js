@@ -5,7 +5,7 @@ const Login = (props) => {
     <Container>
       <Content>
         <ContentImageblock>
-          <ContentImageLogo src="/images/content -image-logo-one.svg" alt=" " />
+          <ContentImageLogo src="/images/content-image-logo-one.svg" alt=" " />
           <Signup>GET ALL THERE</Signup>
         </ContentImageblock>
         <BackgroundImage />
