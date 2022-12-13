@@ -39,6 +39,7 @@ const Content = styled.div`
   height: 100%;
 `;
 
+// Added Background Image with all movies.  Made sure to cover the entire page and per viewport hieght
 const BackgroundImage = styled.div`
   height: 100%;
   background-position: top;
@@ -52,6 +53,7 @@ const BackgroundImage = styled.div`
   z-index: -1;
 `;
 
+// Added the block container for the image
 const ContentImageblock = styled.div`
   margin-bottom: 2vw;
   max-width: 650px;
@@ -69,6 +71,7 @@ const ContentImageblock = styled.div`
   width: 100%;
 `;
 
+//Added the Image displaying Hulu, Disney plus and ESPN
 const ContentImageLogo = styled.img`
   margin-bottom: 12px;
   max-width: 600px;
@@ -77,6 +80,7 @@ const ContentImageLogo = styled.img`
   width: 100%;
 `;
 
+// Implemented the button and styled to fit with hover color change
 const Signup = styled.a`
   font-weight: bold;
   color: #f9f9f9;
