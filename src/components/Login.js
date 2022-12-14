@@ -6,7 +6,16 @@ const Login = (props) => {
       <Content>
         <ContentImageblock>
           <ContentImageLogo src="/images/content-image-logo-one.svg" alt=" " />
-          <Signup>GET ALL THERE</Signup>
+          <DescriptionOne>Enter your email to create or restart your subscription.</DescriptionOne>
+          <Signup>GET ALL THREE</Signup>
+          <DescriptionTwo>
+            All of these and more now streaming.
+            <a href="/">
+              {" "}
+              <u>Terms Apply</u>
+            </a>
+          </DescriptionTwo>
+          <ContentImageLogoTwo src="/images/content-image-logo-two.png" alt="" />
         </ContentImageblock>
         <BackgroundImage />
       </Content>
@@ -96,6 +105,32 @@ const Signup = styled.a`
   &:hover {
     background-color: #0482ee;
   }
+`;
+
+// Implements description above signup button
+const DescriptionOne = styled.p`
+  color: hsla(0, 0%, 95.3%, 1);
+  font-size: 16px;
+  line-heigth: 1.5;
+  margin: 18px 0 24px;
+  letter-spacing: 1px;
+`;
+
+// Implements description below signup button
+const DescriptionTwo = styled.p`
+  color: hsla(0, 0%, 95.3%, 1);
+  font-size: 16px;
+  margin: 18px 0 24px;
+  line-heigth: 1.5;
+  letter-spacing: 1px;
+`;
+
+const ContentImageLogoTwo = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
 `;
 
 export default Login;
