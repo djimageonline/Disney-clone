@@ -125,11 +125,13 @@ const DescriptionTwo = styled.p`
   letter-spacing: 1px;
 `;
 
+//Added the Image displaying Disney, Pixar, MArvel, StartWars, NG
 const ContentImageLogoTwo = styled.img`
   margin-bottom: 12px;
   max-width: 600px;
   min-height: 1px;
-  display: block;
+  display: inline-block;
+  vertical-align: bottom;
   width: 100%;
 `;
 
