@@ -3,12 +3,23 @@ import { auth, provider } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectUserName, selectUserPhoto, setUserLoginDetails } from "../features/user/userSlice";
+import { useEffect } from "react";
 
 const Header = (props) => {
   const dispatch = useDispatch(); //allows to use dispatch
   const navigate = useNavigate(); // access our history in v6 react-router-dom navigate is used instead of useHistory
   const userName = useSelector(selectUserName); //using selector to get access to username
   const userPhoto = useSelector(selectUserPhoto); // pulling info from store.js
+
+  //brings back to homepage detecting we are logged in if the user exists.
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        navigate.push("/home");
+      }
+    });
+  }, [userName]);
 
   // handle the alert for google login auth and imported above
   const handleAuth = () => {
