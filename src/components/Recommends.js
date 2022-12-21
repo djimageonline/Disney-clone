@@ -15,7 +15,7 @@ const Recommends = (props) => {
           movies.map((movie, key) => (
             <Wrap key={key}>
               {movie.id}
-              <Link to={"/detail/" + movie.id}>
+              <Link to={`/detail/` + movie.id}>
                 <img src={movie.cardImg} alt={movie.title} />
               </Link>
             </Wrap>
@@ -34,8 +34,7 @@ const Content = styled.div`
   grid-gap: 25px;
   gap: 25px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-
-  @media (max-width 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
