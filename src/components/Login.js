@@ -17,6 +17,7 @@ const Login = (props) => {
           </DescriptionTwo>
           <ContentImageLogoTwo src="/images/content-image-logo-two.png" alt="" />
         </ContentImageblock>
+        <JP>Created for Self-Project Purposes by JP!</JP>
         <BackgroundImage />
       </Content>
     </Container>
@@ -133,6 +134,13 @@ const ContentImageLogoTwo = styled.img`
   display: inline-block;
   vertical-align: bottom;
   width: 100%;
+`;
+
+const JP = styled.div`
+  color: hsla(0, 0%, 95.3%, 1);
+  font-size: 16px;
+  line-heigth: 1.5;
+  letter-spacing: 1px;
 `;
 
 export default Login;
