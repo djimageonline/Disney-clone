@@ -1,12 +1,38 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import db from "../firebase"; // access from database from firebase
 
 const Detail = (props) => {
+  const { id } = useParams();
+  const [detailData, setDetailData] = useState({});
+
+  useEffect(() => {
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setDetailData(doc.data());
+        } else {
+          console.log("no such movie in Firebase");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  }, [id]);
+
   return (
     <Container>
       <Background>
-        <img src="" alt="" />
+        <img alt={detailData.title} src={detailData.backgroundImg} />
       </Background>
-      <ImageTitle></ImageTitle>
+
+      <ImageTitle>
+        <img alt={detailData.title} src={detailData.titleImg} />
+      </ImageTitle>
+
       <ContentMeta>
         <Controls>
           <Player>
@@ -21,7 +47,14 @@ const Detail = (props) => {
             <span></span>
             <span></span>
           </AddList>
+          <GroupWatch>
+            <div>
+              <img src="/images/group-icon.png" alt="" />
+            </div>
+          </GroupWatch>
         </Controls>
+        <SubTitle>{detailData.subTitle}</SubTitle>
+        <Description>{detailData.description}</Description>
       </ContentMeta>
     </Container>
   );
@@ -160,6 +193,53 @@ const AddList = styled.div`
       transform: translateX(-8px) rotate(0deg);
       width: 2px;
     }
+  }
+`;
+
+const GroupWatch = styled.div`
+  margin-right: 16px;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+
+  // Plus sign in AddList
+  div {
+    height: 40px;
+    width: 40px;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+  }
+`;
+
+const SubTitle = styled.div`
+  color: rgb(249, 249, 249);
+  font-size: 15px;
+  min-height: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const Description = styled.div`
+  line-height: 1.4;
+  font-size: 20px;
+  padding: 16px 0px;
+  color: rgb(249, 249, 249);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
